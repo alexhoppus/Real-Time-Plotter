@@ -1,0 +1,5 @@
+cat /proc/meminfo | grep memfree -i | awk {'print $2'} @ Free
+cat /proc/meminfo | grep cached -i | grep -v -i swap | awk {'print $2'} @ Cached
+#cat /proc/buddyinfo | grep Normal | awk {'print $5'} @ Buddy
+ps -aux | grep /usr/lib/firefox/firefox | grep -v grep |  awk {'print $6'} @ Firefox RSS
+

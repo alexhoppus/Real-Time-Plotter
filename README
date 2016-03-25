@@ -1,0 +1,28 @@
+What is it
+==============================================================================
+RTP is real time plotter octave script, which plots given metrics in real
+time.
+
+Dependencies
+==============================================================================
+You will need an octave interpreter for launching rtp.m script.
+On Ubuntu 14.04:
+sudo apt-get install octave
+
+How-to use
+==============================================================================
+Create file with name cmdfile near your rtp.m, the cmdfile muar have the
+folowing format:
+command1 @ label1
+command1 @ label2
+...
+Example:
+cat /proc/meminfo | grep memfree -i | awk {'print $2'} @ Free
+cat /proc/meminfo | grep cached -i | grep -v -i swap | awk {'print $2'} @ Cache
+#cat /proc/buddyinfo | grep Normal | awk {'print $5'} @ Buddy
+ps -aux | grep /usr/lib/firefox/firefox | grep -v grep |  awk {'print $6'} @ Fi
+refox RSS
+
+The unused lines could be commented out with # symbol.
+Next, launch ./rtp.m . For the given example it will draw 3 plots.
+
